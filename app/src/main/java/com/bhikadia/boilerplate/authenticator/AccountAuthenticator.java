@@ -19,7 +19,7 @@ public class AccountAuthenticator extends AbstractAccountAuthenticator {
 
     public AccountAuthenticator(Context context) {
         super(context);
-        context = context;
+        this.context = context;
     }
 
     @Override

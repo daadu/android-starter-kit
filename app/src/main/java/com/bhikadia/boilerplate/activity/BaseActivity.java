@@ -12,8 +12,19 @@ import com.bhikadia.boilerplate.app.MyApplication;
  */
 public class BaseActivity extends AppCompatActivity {
 
-    // Verifying the session
-    public void verifySession() {
+    // Verifying if user logged out and start MainActivity if not
+    public void verifyIfLoggedOut() {
+        boolean isLoggedIn = MyApplication.getInstance().getAccountUtil().hasAccount();
+
+        if (isLoggedIn) {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+        }
+    }
+
+    // Verifying if user logged in and start LoginActivity if not
+    public void verifyIfLoggedIn() {
         boolean isLoggedIn = MyApplication.getInstance().getAccountUtil().hasAccount();
 
         if (!isLoggedIn) {

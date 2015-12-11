@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     protected void onResume() {
         super.onResume();
-        verifySession();
+        verifyIfLoggedIn();
     }
 
     @Override
