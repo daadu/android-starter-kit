@@ -33,7 +33,7 @@ public class MyApplication extends Application {
         myApplication = this;
     }
 
-    public static synchronized  MyApplication getInstance() {
+    public static synchronized MyApplication getInstance() {
         return myApplication;
     }
 
@@ -44,7 +44,7 @@ public class MyApplication extends Application {
         return pref;
     }
 
-    public AccountUtil getAccountUtil(){
+    public AccountUtil getAccountUtil() {
         if (accountUtil == null)
             accountUtil = new AccountUtil(this);
 
@@ -62,7 +62,7 @@ public class MyApplication extends Application {
         DatabaseHandler.getInstance(this).dropAllTables(db);
     }
 
-//    Volley Method
+    //    Volley Method
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(this);
