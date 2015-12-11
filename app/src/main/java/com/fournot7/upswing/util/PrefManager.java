@@ -38,6 +38,11 @@ public class PrefManager {
         pref.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
+    public void resetPreferences() {
+        editor.clear();
+        editor.commit();
+    }
+
     public String getKey() {
         return pref.getString(KEY, null);
     }

@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.fournot7.upswing.R;
-import com.fournot7.upswing.fragment.PlaceholderFragment;
+import com.fournot7.upswing.fragment.HomeFragment;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             case R.id.option_1:
                 Toast.makeText(getApplicationContext(), "Option 1 Selected", Toast.LENGTH_SHORT).show();
-                PlaceholderFragment fragment = new PlaceholderFragment();
+                HomeFragment fragment = new HomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame, fragment);
                 fragmentTransaction.commit();

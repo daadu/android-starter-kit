@@ -12,9 +12,9 @@ import com.fournot7.upswing.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlaceholderFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    public PlaceholderFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class PlaceholderFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_placeholder, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 
