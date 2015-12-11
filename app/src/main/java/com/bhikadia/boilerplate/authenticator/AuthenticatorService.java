@@ -1,4 +1,4 @@
-package com.fournot7.upswing.authenticator;
+package com.bhikadia.boilerplate.authenticator;
 
 import android.app.Service;
 import android.content.Intent;

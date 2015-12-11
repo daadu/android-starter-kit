@@ -1,9 +1,9 @@
-package com.fournot7.upswing.data.model;
+package com.bhikadia.boilerplate.data.model;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import com.fournot7.upswing.data.ItemDbHandler;
+import com.bhikadia.boilerplate.data.ItemDbHandler;
 
 /**
  * Created by harsh on 11/12/15.

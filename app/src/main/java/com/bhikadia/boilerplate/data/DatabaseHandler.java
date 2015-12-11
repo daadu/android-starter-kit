@@ -1,11 +1,11 @@
-package com.fournot7.upswing.data;
+package com.bhikadia.boilerplate.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.fournot7.upswing.app.AppConfig;
-import com.fournot7.upswing.app.MyApplication;
+import com.bhikadia.boilerplate.app.AppConfig;
+import com.bhikadia.boilerplate.app.MyApplication;
 
 /**
  * Created by harsh on 11/12/15.

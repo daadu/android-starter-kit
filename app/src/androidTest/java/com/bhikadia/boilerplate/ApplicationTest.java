@@ -1,4 +1,4 @@
-package com.fournot7.upswing;
+package com.bhikadia.boilerplate;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.fournot7.upswing.authenticator;
+package com.bhikadia.boilerplate.authenticator;
 
 import android.accounts.AbstractAccountAuthenticator;
 import android.accounts.Account;
@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.fournot7.upswing.activity.LoginActivity;
+import com.bhikadia.boilerplate.activity.LoginActivity;
 
 /**
  * Created by harsh on 11/12/15.

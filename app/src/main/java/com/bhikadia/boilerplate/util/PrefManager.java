@@ -1,4 +1,4 @@
-package com.fournot7.upswing.util;
+package com.bhikadia.boilerplate.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

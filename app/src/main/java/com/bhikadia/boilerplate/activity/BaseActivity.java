@@ -1,4 +1,4 @@
-package com.fournot7.upswing.activity;
+package com.bhikadia.boilerplate.activity;
 
 import android.support.v7.app.AppCompatActivity;
 

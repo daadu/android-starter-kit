@@ -1,8 +1,8 @@
-package com.fournot7.upswing.app;
+package com.bhikadia.boilerplate.app;
 
 import android.app.Application;
 
-import com.fournot7.upswing.util.PrefManager;
+import com.bhikadia.boilerplate.util.PrefManager;
 
 /**
  * Created by harsh on 10/12/15.

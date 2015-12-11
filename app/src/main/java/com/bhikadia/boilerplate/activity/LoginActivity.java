@@ -1,8 +1,8 @@
-package com.fournot7.upswing.activity;
+package com.bhikadia.boilerplate.activity;
 
 import android.os.Bundle;
 
-import com.fournot7.upswing.R;
+import com.bhikadia.boilerplate.R;
 
 public class LoginActivity extends BaseActivity {
 

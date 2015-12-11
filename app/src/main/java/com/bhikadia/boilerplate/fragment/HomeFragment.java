@@ -1,4 +1,4 @@
-package com.fournot7.upswing.fragment;
+package com.bhikadia.boilerplate.fragment;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fournot7.upswing.R;
+import com.bhikadia.boilerplate.R;
 
 /**
  * A simple {@link Fragment} subclass.

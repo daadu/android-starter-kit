@@ -1,4 +1,4 @@
-package com.fournot7.upswing.activity;
+package com.bhikadia.boilerplate.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.fournot7.upswing.R;
-import com.fournot7.upswing.fragment.HomeFragment;
+import com.bhikadia.boilerplate.R;
+import com.bhikadia.boilerplate.fragment.HomeFragment;
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 

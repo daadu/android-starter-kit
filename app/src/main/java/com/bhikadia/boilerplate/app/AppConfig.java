@@ -1,4 +1,4 @@
-package com.fournot7.upswing.app;
+package com.bhikadia.boilerplate.app;
 
 /**
  * Created by harsh on 11/12/15.
