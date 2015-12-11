@@ -18,11 +18,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = AppConfig.DATABASE_NAME;
 
     private final Context context;
-
+    private static DatabaseHandler singleton;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
+    }
+
+    public static DatabaseHandler getInstance(final Context context) {
+        if (singleton == null) {
+            singleton = new DatabaseHandler(context);
+        }
+        return singleton;
     }
 
     @Override
@@ -34,10 +41,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-
-        MyApplication.dbUpdate();
-
-        dropAllTables(db);
+        MyApplication.getInstance().clearUserData(db);
     }
 
     public void dropAllTables(SQLiteDatabase db) {
