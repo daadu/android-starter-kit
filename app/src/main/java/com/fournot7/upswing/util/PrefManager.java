@@ -3,8 +3,6 @@ package com.fournot7.upswing.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.fournot7.upswing.R;
-
 public class PrefManager {
 
     private String TAG = PrefManager.class.getSimpleName();
@@ -15,6 +13,9 @@ public class PrefManager {
     SharedPreferences.Editor editor;
     // Context
     Context context;
+
+    // Shared pref name
+    final String PREF_NAME = "pref";
     // Shared pref mode
     final int PRIVATE_MODE = 0;
 
@@ -25,11 +26,7 @@ public class PrefManager {
 
     public PrefManager(Context context) {
         this.context = context;
-        pref = context.getSharedPreferences(
-                context.getResources().getString(R.string.app_name),
-                PRIVATE_MODE
-        );
-
+        pref = context.getSharedPreferences(PREF_NAME ,PRIVATE_MODE);
         editor = pref.edit();
     }
 

@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Up Swing</string>
+    <string name="account_type">com.bhikadia.boilerplate.account</string>
+
+    <string name="app_name">Boiler Plate</string>
 
     <string name="hello_world">Hello world!</string>
 
