@@ -20,6 +20,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private DrawerLayout drawerLayout;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        verifySession();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

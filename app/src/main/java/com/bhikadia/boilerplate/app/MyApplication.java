@@ -1,17 +1,13 @@
 package com.bhikadia.boilerplate.app;
 
 import android.app.Application;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.bhikadia.boilerplate.R;
-import com.bhikadia.boilerplate.activity.LoginActivity;
 import com.bhikadia.boilerplate.data.DatabaseHandler;
 import com.bhikadia.boilerplate.util.AccountUtil;
 import com.bhikadia.boilerplate.util.LruBitmapCache;
@@ -43,14 +39,14 @@ public class MyApplication extends Application {
 
     public PrefManager getPrefManager() {
         if (pref == null)
-            pref = new PrefManager(getApplicationContext());
+            pref = new PrefManager(this);
 
         return pref;
     }
 
-    public AccountUtil getAccountUtl(){
+    public AccountUtil getAccountUtil(){
         if (accountUtil == null)
-            accountUtil = new AccountUtil(getApplicationContext());
+            accountUtil = new AccountUtil(this);
 
         return accountUtil;
     }
@@ -58,7 +54,7 @@ public class MyApplication extends Application {
 //    Volley Method
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+            mRequestQueue = Volley.newRequestQueue(this);
         }
 
         return mRequestQueue;
@@ -93,27 +89,12 @@ public class MyApplication extends Application {
 
     public void clearUserData(SQLiteDatabase db) {
         // cancel all volley requests
-        getRequestQueue().cancelAll(getApplicationContext());
+        getRequestQueue().cancelAll(this);
 
         // Clearing all the shared preferences
         getPrefManager().resetPreferences();
 
         // Clear all the database tables
-        DatabaseHandler.getInstance(getApplicationContext()).dropAllTables(db);
-    }
-
-    public void verifySession() {
-        boolean isLoggedIn = getAccountUtl().hasAccount();
-
-        if (!isLoggedIn) {
-
-            clearUserData(null);
-
-            Toast.makeText(getApplicationContext(), getString(R.string.logout_message), Toast.LENGTH_LONG).show();
-
-            Intent intent = new Intent(MyApplication.this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-        }
+        DatabaseHandler.getInstance(this).dropAllTables(db);
     }
 }
