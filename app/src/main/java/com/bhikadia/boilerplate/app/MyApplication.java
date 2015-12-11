@@ -51,6 +51,17 @@ public class MyApplication extends Application {
         return accountUtil;
     }
 
+    public void clearUserData(SQLiteDatabase db) {
+        // cancel all volley requests
+        getRequestQueue().cancelAll(this);
+
+        // Clearing all the shared preferences
+        getPrefManager().resetPreferences();
+
+        // Clear all the database tables
+        DatabaseHandler.getInstance(this).dropAllTables(db);
+    }
+
 //    Volley Method
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
@@ -84,17 +95,5 @@ public class MyApplication extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
-    }
-
-
-    public void clearUserData(SQLiteDatabase db) {
-        // cancel all volley requests
-        getRequestQueue().cancelAll(this);
-
-        // Clearing all the shared preferences
-        getPrefManager().resetPreferences();
-
-        // Clear all the database tables
-        DatabaseHandler.getInstance(this).dropAllTables(db);
     }
 }
