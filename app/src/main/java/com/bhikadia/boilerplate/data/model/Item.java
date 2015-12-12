@@ -2,47 +2,38 @@ package com.bhikadia.boilerplate.data.model;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.net.Uri;
 
+import com.bhikadia.boilerplate.data.AppContentProvider;
 import com.bhikadia.boilerplate.data.ItemDbHandler;
 
 /**
  * Created by harsh on 11/12/15.
  */
-public class Item {
+public class Item extends BaseModel {
 
-    private long id = -1;
     private String text;
 
-    public Item(long id, String text) {
-        this.id = id;
+    public Item(long id, String createdAt, String updatedAt, String text) {
+        super(id, createdAt, updatedAt);
         this.text = text;
     }
 
     public Item(final Cursor cursor){
-        this.id = cursor.getLong(cursor.getColumnIndex(ItemDbHandler.COL_ID));
+        super(cursor);
         this.text = cursor.getString(cursor.getColumnIndex(ItemDbHandler.COL_TEXT));
     }
 
     public ContentValues getContent(boolean shouldIncludeId) {
-        final ContentValues values = new ContentValues();
-        if (shouldIncludeId)
-            values.put(ItemDbHandler.COL_ID, id);
+        ContentValues values = super.getContent(shouldIncludeId);
 
         values.put(ItemDbHandler.COL_TEXT, text);
 
         return values;
     }
 
-    /*TODO public Uri buildUri() {
-        return AppContentProvider.URI_OFFERS.buildUpon().appendPath(id + "").build();
-    }*/
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Uri buildUri() {
+        return AppContentProvider.URI_ITEM.buildUpon().appendPath(id + "").build();
     }
 
     public String getText() {
