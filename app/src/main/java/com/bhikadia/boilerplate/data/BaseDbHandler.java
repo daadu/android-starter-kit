@@ -1,6 +1,5 @@
 package com.bhikadia.boilerplate.data;
 
-import android.content.Context;
 import android.net.Uri;
 
 import com.bhikadia.boilerplate.data.model.BaseModel;
@@ -19,25 +18,11 @@ public abstract class BaseDbHandler {
                     + COL_CREATED_AT + " TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime')),"
                     + COL_UPDATED_AT + " TIMESTAMP NOT NULL DEFAULT (datetime('now','localtime'))";
 
-    private static BaseDbHandler singleton;
-    Context context;
-
-    public BaseDbHandler(Context context) {
-        this.context = context;
-    }
-
-    public BaseDbHandler getInstance(Context context){
-        if (singleton != null)
-            singleton = new ItemDbHandler(context);
-
-        return singleton;
-    }
-
     abstract Uri buildUri(long id);
 
     abstract public BaseModel get(long id);
 
-    abstract void insert(BaseModel model);
+    abstract public void insert(BaseModel model);
 
     abstract public void update(BaseModel model);
 

@@ -17,6 +17,9 @@ public class BaseModel {
     private String createdAt;
     private String updatedAt;
 
+    public BaseModel() {
+    }
+
     public BaseModel(long id, String createdAt, String updatedAt) {
         this.id = id;
         this.createdAt = createdAt;

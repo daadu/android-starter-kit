@@ -14,6 +14,10 @@ public class Item extends BaseModel {
 
     private String text;
 
+    public Item() {
+        super();
+    }
+
     public Item(long id, String createdAt, String updatedAt, String text) {
         super(id, createdAt, updatedAt);
         this.text = text;

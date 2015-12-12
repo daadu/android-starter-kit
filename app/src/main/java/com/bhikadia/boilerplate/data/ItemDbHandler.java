@@ -16,6 +16,7 @@ public class ItemDbHandler extends BaseDbHandler {
     public static final String TABLE_NAME = "Item";
 
     private static ItemDbHandler singleton;
+    private Context context;
 
     // Column names
     public static final String COL_TEXT = "text";
@@ -28,12 +29,14 @@ public class ItemDbHandler extends BaseDbHandler {
                     + ")";
 
     public ItemDbHandler(Context context) {
-        super(context);
+        this.context = context;
     }
 
-    @Override
-    public ItemDbHandler getInstance(Context context) {
-        return (ItemDbHandler) super.getInstance(context);
+    public static ItemDbHandler getInstance(Context context) {
+        if (singleton == null)
+            singleton = new ItemDbHandler(context);
+
+        return singleton;
     }
 
     @Override
@@ -46,13 +49,20 @@ public class ItemDbHandler extends BaseDbHandler {
         Cursor cursor = context.getContentResolver().query(
                 buildUri(id),null, null, null, null
         );
-        Item item =  new Item(cursor);
+
+        Item item = null;
+
+        if ((cursor.moveToFirst()) && cursor.getCount() !=0){
+            //cursor is not empty
+            item =  new Item(cursor);
+        }
+
         cursor.close();
         return item;
     }
 
     @Override
-    void insert(BaseModel model) {
+    public void insert(BaseModel model) {
         context.getContentResolver().insert(
                 AppContentProvider.URI_ITEM, model.getContent(true)
         );
