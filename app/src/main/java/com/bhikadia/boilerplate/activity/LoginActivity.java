@@ -44,11 +44,13 @@ public class LoginActivity extends BaseActivity implements BaseApi.ApiListener {
     @Override
     public void onError(String errorMessage) {
         Toast.makeText(getApplicationContext(), "error : " + errorMessage, Toast.LENGTH_LONG).show();
+        progressDialog.dismiss();
     }
 
     @Override
     public void onVolleyError(VolleyError error) {
         Toast.makeText(getApplicationContext(), "Volley error", Toast.LENGTH_LONG).show();
+        progressDialog.dismiss();
     }
 
     @Override

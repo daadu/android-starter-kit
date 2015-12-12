@@ -63,6 +63,9 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         //calling sync state is necessary or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();
+
+        //launch HomeFragment
+        launchHomeFragment();
     }
 
     // This method will trigger on item Click of navigation menu
@@ -81,10 +84,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             case R.id.option_1:
                 Toast.makeText(getApplicationContext(), "Option 1 Selected", Toast.LENGTH_SHORT).show();
-                HomeFragment fragment = new HomeFragment();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frame, fragment);
-                fragmentTransaction.commit();
+                launchHomeFragment();
                 return true;
 
             case R.id.option_2:
@@ -98,5 +98,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 return true;
 
         }
+    }
+
+    private void launchHomeFragment() {
+        HomeFragment fragment = new HomeFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.commit();
     }
 }
