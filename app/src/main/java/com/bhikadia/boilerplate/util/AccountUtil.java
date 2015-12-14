@@ -89,7 +89,7 @@ public class AccountUtil {
         Account account = getAccount();
         if (account != null) {
             AccountManager accountManager = (AccountManager) context.getSystemService(Context.ACCOUNT_SERVICE);
-            accountManager.removeAccount(account, null, null, null);
+            accountManager.removeAccountExplicitly(account);
         }
     }
 
