@@ -12,8 +12,19 @@ import com.bhikadia.boilerplate.app.MyApplication;
  */
 public class BaseActivity extends AppCompatActivity {
 
+    boolean isLoginActivity = false;
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (!isLoginActivity)
+            verifyIfLoggedIn();
+    }
+
     // Verifying if user logged out and start MainActivity if not
     public void verifyIfLoggedOut() {
+        isLoginActivity = true;
+
         boolean isLoggedIn = MyApplication.getInstance().getAccountUtil().hasAccount();
 
         if (isLoggedIn) {
