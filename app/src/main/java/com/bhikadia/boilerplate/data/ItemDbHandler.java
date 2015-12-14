@@ -3,6 +3,8 @@ package com.bhikadia.boilerplate.data;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 
 import com.bhikadia.boilerplate.data.model.BaseModel;
 import com.bhikadia.boilerplate.data.model.Item;
@@ -20,6 +22,13 @@ public class ItemDbHandler extends BaseDbHandler {
 
     // Column names
     public static final String COL_TEXT = "text";
+
+    public static final String[] FIELDS = {
+            COL_ID,
+            COL_TEXT,
+            COL_CREATED_AT,
+            COL_UPDATED_AT
+    };
 
     // Create table statement
     public static final String CREATE_TABLE =
@@ -80,6 +89,31 @@ public class ItemDbHandler extends BaseDbHandler {
         context.getContentResolver().delete(
                 AppContentProvider.URI_ITEM,
                 COL_ID + " = " + model.getId(),
+                null
+        );
+    }
+
+    public void insertOrUpdate(BaseModel model){
+        Item item = get(model.getId());
+
+        if (item != null){
+           update(model);
+        }
+    }
+
+    public Cursor getAll() {
+        return context.getContentResolver().query(
+                AppContentProvider.URI_ITEM, FIELDS, null, null, null
+        );
+    }
+
+    public Loader<Cursor> getAllCursorLoader() {
+        return new CursorLoader(
+                context,
+                AppContentProvider.URI_ITEM,
+                FIELDS,
+                null,
+                null,
                 null
         );
     }

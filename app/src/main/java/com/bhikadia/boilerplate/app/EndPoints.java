@@ -7,4 +7,5 @@ public class EndPoints {
     private static String BASE_URL = "http://daadu.github.io/example/";
 
     public static String REGISTER_API = BASE_URL + "register.json";
+    public static String LIST_API = BASE_URL + "list.json";
 }

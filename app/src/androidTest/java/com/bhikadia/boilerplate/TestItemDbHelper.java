@@ -1,5 +1,6 @@
 package com.bhikadia.boilerplate;
 
+import android.content.ContentValues;
 import android.test.AndroidTestCase;
 
 import com.bhikadia.boilerplate.data.AppContentProvider;
@@ -61,5 +62,27 @@ public class TestItemDbHelper extends AndroidTestCase {
         Item item2 = itemDbHandler.get(1);
         assertNull(item2);
 
+    }
+
+    public void testBulkInsert(){
+        String texts[] = {"One", "Two", "Three", "Four"};
+
+        ContentValues values[] = new ContentValues[4];
+
+        for (int i = 0; i < 4; i++){
+            ContentValues contentValues = new ContentValues();
+
+            contentValues.put(ItemDbHandler.COL_ID, i + 1);
+            contentValues.put(ItemDbHandler.COL_TEXT, texts[i]);
+
+            values[i] = contentValues;
+        }
+
+        getContext().getContentResolver().bulkInsert(AppContentProvider.URI_ITEM, values);
+
+        Item item = itemDbHandler.get(1);
+
+        assertNotNull(item);
+        assertEquals(item.getText(), "One");
     }
 }
