@@ -28,7 +28,7 @@ public abstract class BaseApi implements Response.Listener<JSONObject>, Response
     }
 
     abstract JSONObject createPayload();
-    abstract void call();
+    abstract public void call();
     abstract void parse(JSONObject respJsonObject);
 
     Map<String , String > prepareHeader(){
