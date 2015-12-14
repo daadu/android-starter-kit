@@ -56,14 +56,14 @@ public class ItemDbHandler extends BaseDbHandler {
     @Override
     public Item get(long id) {
         Cursor cursor = context.getContentResolver().query(
-                buildUri(id),null, null, null, null
+                buildUri(id), null, null, null, null
         );
 
         Item item = null;
 
-        if ((cursor.moveToFirst()) && cursor.getCount() !=0){
+        if ((cursor.moveToFirst()) && cursor.getCount() != 0) {
             //cursor is not empty
-            item =  new Item(cursor);
+            item = new Item(cursor);
         }
 
         cursor.close();
@@ -93,11 +93,11 @@ public class ItemDbHandler extends BaseDbHandler {
         );
     }
 
-    public void insertOrUpdate(BaseModel model){
+    public void insertOrUpdate(BaseModel model) {
         Item item = get(model.getId());
 
-        if (item != null){
-           update(model);
+        if (item != null) {
+            update(model);
         }
     }
 

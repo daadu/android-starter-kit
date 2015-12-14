@@ -17,10 +17,10 @@ import org.json.JSONObject;
 /**
  * Created by harsh on 13/12/15.
  */
-public class ListApi extends BaseApi{
+public class ListApi extends BaseApi {
     private String TAG = ListApi.class.getSimpleName();
 
-    private interface KEYS{
+    private interface KEYS {
         final String DATA = "data";
         final String ID = "id";
         final String TEXT = "text";
@@ -50,10 +50,10 @@ public class ListApi extends BaseApi{
 
     @Override
     void parse(JSONObject respJsonObject) {
-        try{
+        try {
             JSONArray dataArray = respJsonObject.getJSONArray(KEYS.DATA);
             ContentValues contentValues[] = new ContentValues[dataArray.length()];
-            for (int i = 0 ; i < dataArray.length(); i++){
+            for (int i = 0; i < dataArray.length(); i++) {
                 JSONObject data = dataArray.getJSONObject(i);
 
                 Item item = new Item();
@@ -71,7 +71,7 @@ public class ListApi extends BaseApi{
             if (apiListener != null)
                 apiListener.onParsedData(null);
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
             Log.e(TAG, "JSON Exception", e);
         }
     }

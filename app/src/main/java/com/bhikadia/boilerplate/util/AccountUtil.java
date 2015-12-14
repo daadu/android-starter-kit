@@ -30,7 +30,7 @@ public class AccountUtil {
     }
 
     public Account getAccount() {
-        Account retAccount[] = getSpecificAccounts( context.getString(R.string.account_type));
+        Account retAccount[] = getSpecificAccounts(context.getString(R.string.account_type));
         if (retAccount != null) {
             return retAccount[0];
         }
