@@ -6,4 +6,5 @@ package com.bhikadia.boilerplate.app;
 public class AppConfig {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "main.db";
+    public static final long UPDATE_CHECK_TIMEOUT = 240;
 }

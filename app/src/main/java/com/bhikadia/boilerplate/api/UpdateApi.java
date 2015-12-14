@@ -1,10 +1,13 @@
 package com.bhikadia.boilerplate.api;
 
+import android.util.Log;
+
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.bhikadia.boilerplate.app.EndPoints;
 import com.bhikadia.boilerplate.app.MyApplication;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -27,7 +30,7 @@ public class UpdateApi extends BaseApi {
     }
 
     @Override
-    void call() {
+    public void call() {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 EndPoints.UPDATE_API,
@@ -43,5 +46,18 @@ public class UpdateApi extends BaseApi {
     @Override
     void parse(JSONObject respJsonObject) {
 
+        try{
+            boolean shouldUpdate = respJsonObject.getBoolean(KEYS.UPDATE);
+            boolean compulsoryUpdate = respJsonObject.getBoolean(KEYS.COMPULSORY);
+
+            MyApplication.getInstance().getPrefManager().setShouldUpdate(shouldUpdate);
+            MyApplication.getInstance().getPrefManager().setCompulsoryUpdate(compulsoryUpdate);
+            MyApplication.getInstance().getPrefManager().setLastUpdateCheckTime(System.currentTimeMillis() / 1000);
+        }catch (JSONException e){
+            Log.e(TAG, "JSON Exception", e);
+        }
+
+        if (apiListener != null)
+            apiListener.onParsedData(null);
     }
 }

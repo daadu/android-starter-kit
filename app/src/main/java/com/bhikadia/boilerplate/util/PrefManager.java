@@ -20,7 +20,9 @@ public class PrefManager {
     final int PRIVATE_MODE = 0;
 
     // All Shared Preferences Keys
-    private final String KEY = "key";
+    public final static String SHOULD_UPDATE = "key";
+    public final static String COMPULSORY_UPDATE = "compulsory_update";
+    public  final  static String LAST_UPDATE_CHECK_TIME = "last_update_check_time";
 
     private SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener;
 
@@ -40,12 +42,34 @@ public class PrefManager {
         editor.commit();
     }
 
-    public String getKey() {
-        return pref.getString(KEY, null);
+    public boolean getShouldUpdate() {
+        return pref.getBoolean(SHOULD_UPDATE, false);
     }
 
-    public void setKey(String key) {
-        editor.putString(KEY, key);
+    public void setShouldUpdate(boolean shouldUpdate) {
+        if (shouldUpdate != getShouldUpdate()) {
+            editor.putBoolean(SHOULD_UPDATE, shouldUpdate);
+            editor.commit();
+        }
+    }
+
+    public boolean getCompulsoryUpdate() {
+        return pref.getBoolean(COMPULSORY_UPDATE, false);
+    }
+
+    public void setCompulsoryUpdate(boolean compulsoryUpdate) {
+        if (compulsoryUpdate != getCompulsoryUpdate()) {
+            editor.putBoolean(COMPULSORY_UPDATE, compulsoryUpdate);
+            editor.commit();
+        }
+    }
+
+    public Long getLastUpdateCheckTime() {
+        return pref.getLong(LAST_UPDATE_CHECK_TIME, 0);
+    }
+
+    public void setLastUpdateCheckTime(Long time) {
+        editor.putLong(LAST_UPDATE_CHECK_TIME, time);
         editor.commit();
     }
 }
