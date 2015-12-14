@@ -12,6 +12,7 @@ import com.bhikadia.boilerplate.R;
 import com.bhikadia.boilerplate.data.DatabaseHandler;
 import com.bhikadia.boilerplate.util.AccountUtil;
 import com.bhikadia.boilerplate.util.LruBitmapCache;
+import com.bhikadia.boilerplate.util.ParseUtil;
 import com.bhikadia.boilerplate.util.PrefManager;
 import com.bhikadia.boilerplate.util.SyncUtil;
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -40,6 +41,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         myApplication = this;
+
+        // register with parse
+        ParseUtil.registerParse(this);
     }
 
     public static synchronized MyApplication getInstance() {

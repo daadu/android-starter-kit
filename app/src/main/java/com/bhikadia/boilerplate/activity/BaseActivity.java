@@ -12,6 +12,15 @@ import com.bhikadia.boilerplate.app.MyApplication;
  */
 public class BaseActivity extends AppCompatActivity {
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // turn on Sync Util
+        if (MyApplication.getInstance().getAccountUtil().hasAccount())
+            MyApplication.getInstance().getSyncUtil().setSyncSettings();
+    }
+
     // Verifying if user logged out and start MainActivity if not
     public void verifyIfLoggedOut() {
         boolean isLoggedIn = MyApplication.getInstance().getAccountUtil().hasAccount();
