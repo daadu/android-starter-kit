@@ -2,10 +2,10 @@ package com.bhikadia.boilerplate.util;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.content.ContentResolver;
 import android.content.Context;
 
 import com.bhikadia.boilerplate.R;
+import com.bhikadia.boilerplate.app.MyApplication;
 import com.google.android.gms.auth.GoogleAuthUtil;
 
 import org.json.JSONArray;
@@ -81,8 +81,7 @@ public class AccountUtil {
         accountManager.addAccountExplicitly(account, "", null);
         accountManager.setAuthToken(account, context.getString(R.string.auth_token_type), token);
 
-        ContentResolver.setSyncAutomatically(account, context.getString(R.string.authority), true);
-
+        MyApplication.getInstance().getSyncUtil().setSyncSettings();
         return account;
     }
 

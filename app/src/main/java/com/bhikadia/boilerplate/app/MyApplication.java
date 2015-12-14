@@ -12,6 +12,7 @@ import com.bhikadia.boilerplate.data.DatabaseHandler;
 import com.bhikadia.boilerplate.util.AccountUtil;
 import com.bhikadia.boilerplate.util.LruBitmapCache;
 import com.bhikadia.boilerplate.util.PrefManager;
+import com.bhikadia.boilerplate.util.SyncUtil;
 
 /**
  * Created by harsh on 10/12/15.
@@ -24,6 +25,7 @@ public class MyApplication extends Application {
 
     private PrefManager pref;
     private AccountUtil accountUtil;
+    private SyncUtil syncUtil;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
 
@@ -49,6 +51,13 @@ public class MyApplication extends Application {
             accountUtil = new AccountUtil(this);
 
         return accountUtil;
+    }
+
+    public SyncUtil getSyncUtil() {
+        if (syncUtil == null)
+            syncUtil = new SyncUtil(this);
+
+        return syncUtil;
     }
 
     public void clearUserData(SQLiteDatabase db) {
