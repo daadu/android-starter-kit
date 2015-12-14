@@ -22,7 +22,7 @@ public class PrefManager {
     // All Shared Preferences Keys
     public final static String SHOULD_UPDATE = "key";
     public final static String COMPULSORY_UPDATE = "compulsory_update";
-    public  final  static String LAST_UPDATE_CHECK_TIME = "last_update_check_time";
+    public  final  static String LAST_UPDATE_SHOW_TIME = "last_update_show_time";
 
     private SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener;
 
@@ -64,12 +64,12 @@ public class PrefManager {
         }
     }
 
-    public Long getLastUpdateCheckTime() {
-        return pref.getLong(LAST_UPDATE_CHECK_TIME, 0);
+    public Long getLastUpdateShowTime() {
+        return pref.getLong(LAST_UPDATE_SHOW_TIME, 0);
     }
 
-    public void setLastUpdateCheckTime(Long time) {
-        editor.putLong(LAST_UPDATE_CHECK_TIME, time);
+    public void setLastUpdateShowTime(Long time) {
+        editor.putLong(LAST_UPDATE_SHOW_TIME, time);
         editor.commit();
     }
 }

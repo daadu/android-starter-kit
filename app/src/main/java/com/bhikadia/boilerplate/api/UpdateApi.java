@@ -52,7 +52,6 @@ public class UpdateApi extends BaseApi {
 
             MyApplication.getInstance().getPrefManager().setShouldUpdate(shouldUpdate);
             MyApplication.getInstance().getPrefManager().setCompulsoryUpdate(compulsoryUpdate);
-            MyApplication.getInstance().getPrefManager().setLastUpdateCheckTime(System.currentTimeMillis() / 1000);
         }catch (JSONException e){
             Log.e(TAG, "JSON Exception", e);
         }

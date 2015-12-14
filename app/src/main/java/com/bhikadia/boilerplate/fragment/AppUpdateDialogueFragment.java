@@ -39,7 +39,7 @@ public class AppUpdateDialogueFragment extends DialogFragment {
         if (!MyApplication.getInstance().getPrefManager().getCompulsoryUpdate()){
             builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    MyApplication.getInstance().getPrefManager().setLastUpdateCheckTime(System.currentTimeMillis() / 1000);
+                    MyApplication.getInstance().getPrefManager().setLastUpdateShowTime(System.currentTimeMillis() / 1000);
 
                     if (mListener != null)
                         mListener.onAppUpdateCancelClicked();

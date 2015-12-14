@@ -94,7 +94,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected boolean isCheckUpdateRequestTimeout() {
-        Long lastRequestTime = MyApplication.getInstance().getPrefManager().getLastUpdateCheckTime();
+        Long lastRequestTime = MyApplication.getInstance().getPrefManager().getLastUpdateShowTime();
         Long currentTime = System.currentTimeMillis() / 1000;
 
         return currentTime - lastRequestTime > AppConfig.UPDATE_CHECK_TIMEOUT;
