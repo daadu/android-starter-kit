@@ -17,8 +17,8 @@ public class LoginActivity extends BaseActivity implements BaseApi.ApiListener {
 
     @Override
     protected void onResume() {
-        super.onResume();
         verifyIfLoggedOut();
+        super.onResume();
     }
 
     @Override
