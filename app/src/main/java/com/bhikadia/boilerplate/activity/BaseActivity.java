@@ -21,6 +21,15 @@ public class BaseActivity extends AppCompatActivity {
             verifyIfLoggedIn();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // turn on Sync Util
+        if (MyApplication.getInstance().getAccountUtil().hasAccount())
+            MyApplication.getInstance().getSyncUtil().setSyncSettings();
+    }
+
     // Verifying if user logged out and start MainActivity if not
     public void verifyIfLoggedOut() {
         isLoginActivity = true;
