@@ -8,4 +8,5 @@ public class EndPoints {
 
     public static final String REGISTER_API = BASE_URL + "register.json";
     public static final String LIST_API = BASE_URL + "list.json";
+    public static final String UPDATE_API = BASE_URL + "update.json";
 }

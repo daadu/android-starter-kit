@@ -11,4 +11,6 @@ public class AppConfig {
     public static final String PARSE_APPLICATION_ID = "nAz3VzX808V7VomZ3bDdLjlYRwMTp7XvTdSCgSPu";
     public static final String PARSE_CLIENT_KEY = "KSjXUbFsHmC5imil1wilfikHQOQidJKv56DcPHGI";
     public static final int NOTIFICATION_ID = 100;
+
+    public static final long UPDATE_CHECK_TIMEOUT = 240;
 }
