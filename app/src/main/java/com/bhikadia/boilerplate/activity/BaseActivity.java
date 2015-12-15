@@ -40,7 +40,7 @@ public class BaseActivity extends AppCompatActivity {
         MyApplication.getInstance().getPrefManager().setOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key.equals(PrefManager.SHOULD_UPDATE)) {
+                if (key.equals(PrefManager.SHOULD_UPDATE) || key.equals(PrefManager.COMPULSORY_UPDATE)) {
                     showUpdateDialogue();
                 }
             }

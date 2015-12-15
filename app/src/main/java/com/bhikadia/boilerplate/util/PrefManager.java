@@ -69,7 +69,9 @@ public class PrefManager {
     }
 
     public void setLastUpdateShowTime(Long time) {
-        editor.putLong(LAST_UPDATE_SHOW_TIME, time);
-        editor.commit();
+        if (time != getLastUpdateShowTime()) {
+            editor.putLong(LAST_UPDATE_SHOW_TIME, time);
+            editor.commit();
+        }
     }
 }
